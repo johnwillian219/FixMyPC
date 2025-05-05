@@ -1,0 +1,45 @@
+<html>
+<head>
+    <hta:application 
+        id="oHTA"
+        applicationname="Dialog"
+        border="thin"
+        borderstyle="normal"
+        caption="yes"
+        contextmenu="no"
+        maximizebutton="no"
+        minimizebutton="no"
+        navigable="yes"
+        scroll="no"
+        showintaskbar="yes"
+        singleinstance="yes"
+        sysmenu="yes"
+        windowstate="normal"
+        innerborder="no"
+        width="480"
+        height="200" />
+    <script type="text/javascript">
+        function escreverEscolha(escolha) {
+            try {
+                var fso = new ActiveXObject("Scripting.FileSystemObject");
+                var file = fso.CreateTextFile("C:\\Users\\johnw\\Desktop\\Hacker\\6-Ferramentas\\6-Scripts\\1-Script-para-bloquear-e-desbloquear-pastas-windows\\3-script\\choice.txt", true);
+                file.WriteLine(escolha);
+                file.Close();
+                alert("Escolha gravada: " + escolha);
+            } catch (e) {
+                alert("Erro ao escrever a escolha: " + e.message);
+            }
+            window.close();
+        }
+
+        window.resizeTo(600, 200);
+        window.moveTo((screen.width - 480) / 2, (screen.height - 200) / 2);
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
+    <h3 style="margin-bottom: 20px;">Deseja bloquear ou desbloquear pasta?</h3>
+    <button onclick="escreverEscolha('Bloquear')" style="width: 120px; height: 40px; margin-bottom: 10px;">Bloquear</button>
+    <br />
+    <button onclick="escreverEscolha('Desbloquear')" style="width: 120px; height: 40px;">Desbloquear</button>
+</body>
+</html>
